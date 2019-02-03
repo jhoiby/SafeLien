@@ -47,6 +47,8 @@ namespace SSar.Presentation.WebUI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var sqlDbConnectionString = "SafeLienDevSqlDbConnection";
+
             var serviceProvider = services.BuildServiceProvider();
 
             services.Configure<CookiePolicyOptions>(options =>
@@ -58,7 +60,7 @@ namespace SSar.Presentation.WebUI
 
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("ApplicationSqlDbConnection")));
+                    Configuration.GetConnectionString(sqlDbConnectionString)));
 
             services.AddIdentity<ApplicationUser, ApplicationRole>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
@@ -100,7 +102,7 @@ namespace SSar.Presentation.WebUI
 
             services.AddTransient<IQueryService, SqlDbQueryService>(ctx =>
                 new SqlDbQueryService(
-                    Configuration.GetConnectionString("ApplicationSqlDbConnection")));
+                    Configuration.GetConnectionString(sqlDbConnectionString)));
 
             services.AddSingleton<IIntegrationEventQueue, IntegrationEventQueue>();
 
