@@ -18,10 +18,11 @@
         </tr>
     </thead>
     <tbody>
-    <tr>
         @if (Model?.Data?.Roles == null)
         {
-            <td>No roles were found. Click 'Add role' to add a new role.</td>
+            <tr>
+                <td>No roles were found. Click 'Add role' to add a new role.</td>
+            </tr>
         }
         else
         {
@@ -38,6 +39,5 @@
              }
             
         }
-    </tr>
     </tbody>
 </table>

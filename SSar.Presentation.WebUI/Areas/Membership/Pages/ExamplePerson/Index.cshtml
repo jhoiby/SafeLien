@@ -4,6 +4,39 @@
 }
 <h1>ExamplePerson index page</h1>
 
-<div>
-    <a asp-page="/ExamplePerson/Create">Add person</a><br/>
+<div class="pb-4">
+    <a asp-area="Membership" asp-page="/ExamplePerson/Create">Add example person</a>
 </div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">EmailAddress</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model?.Data?.ExamplePersons == null)
+        {
+            <tr>
+                <td>No ExamplePersons were found. Click 'Add ExamplePerson' to add a new ExamplePerson.</td>
+            </tr>
+        }
+        else
+        {
+            foreach (var person in Model.Data.ExamplePersons)
+            {
+                <tr>
+                    <td>@person.Name</td>
+                    <td>@person.EmailAddress</td>
+                    <td>
+                        <a asp-page="Edit" asp-route-personId="@person.Id">Edit</a> |
+                        <a asp-page="Delete" asp-route-personId="@person.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+            
+        }
+    </tbody>
+</table>
