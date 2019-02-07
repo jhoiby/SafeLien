@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <UserSecretsId>aspnet-Presentation.WebUI-55FE91B0-09CA-40B6-AC17-1C472363BB97</UserSecretsId>
+    <UserSecretsId>aspnet-Presentation.WebUI-3A7C91B0-09CA-40B6-AC17-1C472363EAD1</UserSecretsId>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
   </PropertyGroup>
 
