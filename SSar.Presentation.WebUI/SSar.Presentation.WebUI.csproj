@@ -30,6 +30,7 @@
   <ItemGroup>
     <Folder Include="Infrastructure\Helpers\" />
     <Folder Include="Logs\" />
+    <Folder Include="wwwroot\img\branding\" />
   </ItemGroup>
 
 
