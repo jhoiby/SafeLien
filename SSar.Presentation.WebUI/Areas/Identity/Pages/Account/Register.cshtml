@@ -4,64 +4,73 @@
     ViewData["Title"] = "Register";
 }
 
-<div class="row col-6 mx-auto justify-content-center">
-    <img class="img-fluid" src="/img/branding/logo-large.png" />
-</div>
+<div class="flex-column col-12 col-md-10 col-lg-8 col-xl-6">
 
-<div class="row col-6 mx-auto justify-content-center py-3">
-    <h4 class="text-center">Lets get started!</h4>
-</div>
+    <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+        
+        <h2 class="mb-2 mb-sm-3 mb-md-4">
+            Let's get started!
+        </h2>
 
-<div class="row col-6 mx-auto justify-content-center font-weight-bold">
-    Step one: Create an account
-</div>
-<div class="row col-6 mx-auto justify-content-center pb-3">
-    Step two: Provide company information
-</div>
+        <div class="text-left mb-1 mb-sm-2 mb-md-3">
+            <span class="font-weight-bold">Step one: Create an account</span><br/>
+            Step two: Provide company information
+        </div>
 
-<div class="row col-6 mx-auto justify-content-center">
-    <form form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+        <div asp-validation-summary="All" class="row text-danger">
+        </div>
 
-        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group form-inline">
 
-        <div class="row">
-            <div class="form-group col-6">
-                <input asp-for="Input.FirstName" class="form-control" placeholder="First" />
-                <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+            <div class="w-50">
+                <div class="form-group mr-2">
+                    <input asp-for="Input.FirstName" class="form-control w-100" placeholder="First name"/>
+                    <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group col-6">
-                <input asp-for="Input.LastName" class="form-control" placeholder="Last" />
-                <span asp-validation-for="Input.LastName" class="text-danger"></span>
+
+            <div class="w-50">
+                <div class="form-group ml-2">
+                    <input asp-for="Input.LastName" class="form-control w-100" placeholder="Last name"/>
+                    <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                </div>
             </div>
         </div>
 
-        <div class="form-group">
-            <input asp-for="Input.Email" class="form-control" placeholder="Email" />
-            <span asp-validation-for="Input.Email" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <input asp-for="Input.Password" class="form-control" placeholder="Password" />
-            <span asp-validation-for="Input.Password" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="Confirm password" />
-            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-        </div>
-
-        <button type="submit" class="btn btn-primary col-md-12">Register</button>
-
-        <div class="row justify-content-between py-4">
-            <div class="col"><hr /></div>
-            <div class="col-6 text-center">
-                Or, connect with<br />
-                a social login
+        <div>
+            <div class="form-group">
+                <input asp-for="Input.Email" class="form-control" placeholder="Email"/>
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
-            <div class="col"><hr /></div>
         </div>
 
-        <div class="row text-center">(Buttons here)</div>
+        <div>
+            <div class="form-group">
+                <input asp-for="Input.Password" class="form-control" placeholder="Password"/>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div>
+            <div class="form-group">
+                <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="Confirm password"/>
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="text-right mb-4">
+            <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+        
+        <h3 class="mb-4">
+            Or, connect with a social login
+        </h3>
+
+
+        <div>(Buttons here)</div>
 
     </form>
+
 </div>
 
 @section Scripts {
