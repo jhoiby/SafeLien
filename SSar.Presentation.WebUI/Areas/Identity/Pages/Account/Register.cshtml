@@ -4,73 +4,76 @@
     ViewData["Title"] = "Register";
 }
 
-<div class="flex-column col-12 col-md-10 col-lg-8 col-xl-6">
+<div class="row">
+    <div class="col-sm-12 col-md-10 col-lg-7 col-xl-6">
 
-    <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
-        
-        <h2 class="mb-2 mb-sm-3 mb-md-4">
-            Let's get started!
-        </h2>
+        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
 
-        <div class="text-left mb-1 mb-sm-2 mb-md-3">
-            <span class="font-weight-bold">Step one: Create an account</span><br/>
-            Step two: Provide company information
-        </div>
-
-        <div asp-validation-summary="All" class="row text-danger">
-        </div>
-
-        <div class="form-group form-inline">
-
-            <div class="w-50">
-                <div class="form-group mr-2">
-                    <input asp-for="Input.FirstName" class="form-control w-100" placeholder="First name"/>
-                    <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+            <div class="row mb-2 mb-sm-3 mb-md-4">
+                <div class="col">
+                    <h2>Let's get started!</h2>
                 </div>
             </div>
 
-            <div class="w-50">
-                <div class="form-group ml-2">
-                    <input asp-for="Input.LastName" class="form-control w-100" placeholder="Last name"/>
-                    <span asp-validation-for="Input.LastName" class="text-danger"></span>
+            <div class="row mb-1 mb-sm-2 mb-md-3">
+                <div class="col">
+                    <span class="font-weight-bold">Step one: Create or connect an account</span><br />
+                    Step two: Provide company information
                 </div>
             </div>
-        </div>
 
-        <div>
-            <div class="form-group">
-                <input asp-for="Input.Email" class="form-control" placeholder="Email"/>
-                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            <div class="row mb-4">
+                <div class="col">
+                    <h4>Create your own account:</h4>
+                </div>
             </div>
-        </div>
 
-        <div>
-            <div class="form-group">
-                <input asp-for="Input.Password" class="form-control" placeholder="Password"/>
-                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="form-group col-12 col-sm-6 d-inline-block">
+                            <input asp-for="Input.FirstName" class="form-control w-100" placeholder="First name" />
+                            <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-12 col-sm-6 d-inline-block">
+                            <input asp-for="Input.LastName" class="form-control w-100" placeholder="Last name" />
+                            <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input asp-for="Input.Email" class="form-control" placeholder="Email" />
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input asp-for="Input.Password" class="form-control" placeholder="Password" />
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="Confirm password" />
+                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                    </div>
+                    <div class="text-right mb-4">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div>
-            <div class="form-group">
-                <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="Confirm password"/>
-                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            <div class="row mb-4">
+                <div class="col">
+                    <h4>Or, connect with a social account:</h4>
+                </div>
             </div>
-        </div>
 
-        <div class="text-right mb-4">
-            <button type="submit" class="btn btn-primary">Register</button>
-        </div>
-        
-        <h3 class="mb-4">
-            Or, connect with a social login
-        </h3>
+            <div class="row">
+                <div class="col">
+                    (Buttons go here)
+                </div>
+            </div>
+
+        </form>
 
 
-        <div>(Buttons here)</div>
-
-    </form>
-
+    </div>
 </div>
 
 @section Scripts {
