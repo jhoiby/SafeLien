@@ -57,21 +57,30 @@
                     </div>
                 </div>
             </div>
-
-            <div class="row mb-4">
-                <div class="col">
-                    <h4>Or, connect with a social account:</h4>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col">
-                    (Buttons go here)
-                </div>
-            </div>
-
         </form>
+        
+        @{
+            if ((Model.ExternalLogins?.Count ?? 0) > 0 )
+            {
+                <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
 
+                    <div class="row mb-4">
+                        <div class="col">
+                            <h4>Or, connect with a social account:</h4>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p>
+                            @foreach (var provider in Model.ExternalLogins)
+                            {
+                                <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                            }
+                        </p>
+                    </div>
+                </form>
+            }
+        }
 
     </div>
 </div>
